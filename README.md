@@ -6,7 +6,6 @@ Professors log in, fill in student details and grades through cascading forms, a
 
 ![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?logo=php&logoColor=white)
 ![MariaDB](https://img.shields.io/badge/MariaDB-10.4-003545?logo=mariadb&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 ---
 
@@ -78,7 +77,7 @@ No external PHP libraries or JavaScript frameworks are required.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/fiche-d-evaluation.git
+git clone https://github.com/Jamil-Mouad/evaluation_file/.git
 cd fiche-d-evaluation
 ```
 
@@ -132,18 +131,18 @@ The SQL file will create all 10 tables and seed them with sample data including:
 
 1. Copy the project folder into your XAMPP web root:
    ```bash
-   cp -r fiche-d-evaluation /opt/lampp/htdocs/fiche_d_evaluation
+   cp -r evaluation_file /opt/lampp/htdocs/evaluation_file
    ```
 2. Start Apache and MySQL from the XAMPP control panel
 3. Open your browser and navigate to:
    ```
-   http://localhost/fiche_d_evaluation/login/login.php
+   http://localhost/evaluation_file/login/login.php
    ```
 
 ### Option B: Using PHP Built-in Server
 
 ```bash
-cd fiche-d-evaluation
+cd evaluation_file
 php -S localhost:8080
 ```
 
@@ -190,7 +189,7 @@ Enter your email and CIN number on the login page.
 ## Project Structure
 
 ```
-fiche-d-evaluation/
+evaluation_file/
 ├── config/
 │   └── database.php              # Database connection (mysqli)
 ├── includes/
@@ -312,10 +311,4 @@ WHERE ID_filiere = 1;
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-**EST Fkih Ben Salah** — Universite Sultan Moulay Slimane  
-Hay Tighnari, Route Nationale N11, 23200 Fkih Ben Salah  
-Tel.: 05.23.43.46.66 / 05.23.43.49.99 | estfbs@usms.ma | [estfbs.usms.ac.ma](http://estfbs.usms.ac.ma/)
+This project is open source .
