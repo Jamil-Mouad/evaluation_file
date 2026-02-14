@@ -1,0 +1,390 @@
+/* ==========================================================================
+   LOGIN PAGE — EST Fkih Ben Salah
+   Clean institutional design with geometric accents
+   ========================================================================== */
+
+:root {
+    --brand-deep: #0c2340;
+    --brand-mid: #1a4b8c;
+    --brand-accent: #2e86de;
+    --brand-light: #e8f1fb;
+    --surface: #ffffff;
+    --surface-2: #f7f8fa;
+    --text-primary: #1a1d23;
+    --text-secondary: #5a6170;
+    --text-muted: #8b91a0;
+    --border: #dfe2e8;
+    --border-focus: #2e86de;
+    --error: #d63031;
+    --error-bg: #fdf0f0;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Layout ===== */
+.login-page {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Brand Panel (Left) ===== */
+.brand-panel {
+    position: relative;
+    width: 45%;
+    min-height: 100vh;
+    background: var(--brand-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse at 20% 50%, rgba(46,134,222,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(46,134,222,0.1) 0%, transparent 50%);
+}
+
+.brand-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    max-width: 480px;
+}
+
+.brand-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(46,134,222,0.2);
+    border: 1px solid rgba(46,134,222,0.3);
+    border-radius: 20px;
+    color: var(--brand-accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.brand-content h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.brand-location {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 32px;
+}
+
+.brand-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--brand-accent);
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+.brand-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.55);
+    max-width: 320px;
+}
+
+.brand-footer {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+}
+
+.brand-footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+}
+
+/* ===== Form Panel (Right) ===== */
+.form-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: var(--surface);
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 420px;
+}
+
+.form-header {
+    margin-bottom: 36px;
+}
+
+.form-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+/* ===== Error Message ===== */
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--error-bg);
+    border: 1px solid rgba(214,48,49,0.15);
+    border-radius: var(--radius-sm);
+    color: var(--error);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Form Fields ===== */
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+}
+
+.input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition);
+    flex-shrink: 0;
+}
+
+.input-wrap input {
+    width: 100%;
+    height: 48px;
+    padding: 0 48px 0 44px;
+    background: var(--surface-2);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text-primary);
+    transition: all var(--transition);
+    outline: none;
+}
+
+.input-wrap input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-wrap input:focus {
+    background: var(--surface);
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(46,134,222,0.12);
+}
+
+.input-wrap input:focus ~ .field-icon,
+.input-wrap:focus-within .field-icon {
+    color: var(--brand-accent);
+}
+
+/* ===== Toggle Password ===== */
+.toggle-pass {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text-muted);
+    transition: color var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.toggle-pass:hover {
+    color: var(--text-primary);
+}
+
+/* ===== Submit Button ===== */
+.btn-submit {
+    width: 100%;
+    height: 50px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--brand-deep);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.btn-submit:hover {
+    background: var(--brand-mid);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit svg {
+    transition: transform var(--transition);
+}
+
+.btn-submit:hover svg {
+    transform: translateX(3px);
+}
+
+/* ===== Form Footer ===== */
+.form-footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.form-footer p {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 960px) {
+    .brand-panel {
+        width: 40%;
+    }
+    .brand-content {
+        padding: 40px;
+    }
+    .brand-content h1 {
+        font-size: 34px;
+    }
+    .brand-footer {
+        left: 40px;
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-page {
+        flex-direction: column;
+    }
+    .brand-panel {
+        width: 100%;
+        min-height: auto;
+        padding: 48px 24px;
+    }
+    .brand-content {
+        padding: 0;
+        max-width: 100%;
+        text-align: center;
+    }
+    .brand-content h1 {
+        font-size: 28px;
+    }
+    .brand-divider {
+        margin: 24px auto;
+    }
+    .brand-desc {
+        max-width: 100%;
+    }
+    .brand-footer {
+        display: none;
+    }
+    .form-panel {
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-badge {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+    .brand-content h1 {
+        font-size: 24px;
+    }
+    .brand-location {
+        font-size: 16px;
+    }
+    .form-header h2 {
+        font-size: 26px;
+    }
+}

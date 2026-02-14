@@ -1,0 +1,445 @@
+/* ==========================================================================
+   EVALUATION SHEET (PDF) — EST Fkih Ben Salah
+   A4 document layout with print-optimized styles
+   ========================================================================== */
+
+:root {
+    --brand-deep: #0c2340;
+    --brand-mid: #1a4b8c;
+    --brand-accent: #2e86de;
+    --brand-light: #e8f1fb;
+    --surface: #ffffff;
+    --surface-2: #f7f8fa;
+    --text-primary: #1a1d23;
+    --text-secondary: #5a6170;
+    --text-muted: #8b91a0;
+    --border: #dfe2e8;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+/* ==========================================================================
+   ACTION BAR (screen only)
+   ========================================================================== */
+.action-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    width: 210mm;
+    max-width: 100%;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    outline: none;
+    white-space: nowrap;
+}
+
+.action-btn-primary {
+    background: var(--brand-deep);
+    color: #fff;
+}
+
+.action-btn-primary:hover {
+    background: var(--brand-mid);
+    box-shadow: var(--shadow-md);
+}
+
+.action-btn-secondary {
+    background: var(--surface);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+}
+
+.action-btn-secondary:hover {
+    background: var(--surface-2);
+    color: var(--text-primary);
+    border-color: var(--text-muted);
+}
+
+/* ==========================================================================
+   A4 SHEET
+   ========================================================================== */
+.a4-sheet {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 14mm;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   DOCUMENT HEADER
+   ========================================================================== */
+.doc-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2.5px solid var(--brand-deep);
+    margin-bottom: 8px;
+}
+
+.doc-logo {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.doc-header-text {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.doc-header-text p {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.doc-header-est {
+    font-weight: 700 !important;
+    color: var(--brand-deep) !important;
+    font-size: 10px !important;
+}
+
+/* ==========================================================================
+   DOCUMENT MAIN
+   ========================================================================== */
+.doc-main {
+    flex: 1;
+    width: 100%;
+}
+
+/* Title */
+.doc-title {
+    text-align: center;
+    padding: 14px 0 10px;
+}
+
+.doc-title h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brand-deep);
+    line-height: 1.4;
+}
+
+.doc-title h2 {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 3px;
+}
+
+/* Info Section */
+.doc-info {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+
+.doc-info-row {
+    display: flex;
+    padding: 4px 0;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.doc-info-label {
+    font-weight: 700;
+    color: var(--text-primary);
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+.doc-info-value {
+    color: var(--text-secondary);
+}
+
+/* Inline row removed — date/heure/lieu now use standard doc-info-row */
+
+/* Section Titles */
+.doc-section {
+    margin-bottom: 12px;
+}
+
+.doc-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brand-deep);
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+}
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+}
+
+.doc-table th {
+    background: var(--brand-deep);
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 7px 10px;
+    text-align: left;
+}
+
+.doc-table td {
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.doc-table tbody tr:nth-child(even) {
+    background: var(--surface-2);
+}
+
+.doc-table .text-center {
+    text-align: center;
+}
+
+/* Eval table column widths */
+.eval-table .col-criteria { width: 55%; }
+.eval-table .col-percent { width: 20%; text-align: center; }
+.eval-table .col-note { width: 25%; text-align: center; }
+
+.eval-table .total-row td {
+    background: var(--brand-light);
+    border-color: var(--brand-accent);
+    color: var(--brand-deep);
+    font-weight: 700;
+}
+
+/* Jury table */
+.jury-table th {
+    text-align: center;
+}
+
+.jury-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   SIGNATURES
+   ========================================================================== */
+.sig-cell {
+    padding: 3px 6px !important;
+}
+
+.sig-wrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+}
+
+.sig-canvas {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.sig-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--brand-accent);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background var(--transition);
+}
+
+.sig-clear:hover {
+    background: var(--brand-mid);
+}
+
+/* Coordinator */
+.doc-coordinator {
+    text-align: center;
+    padding: 12px 0 8px;
+}
+
+.coord-sig-wrap {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.coord-canvas {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+/* ==========================================================================
+   DOCUMENT FOOTER
+   ========================================================================== */
+.doc-footer {
+    border-top: 2.5px solid var(--brand-deep);
+    padding-top: 8px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.doc-footer p {
+    font-size: 8px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.doc-footer a {
+    color: var(--brand-accent);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE (screen scaling)
+   ========================================================================== */
+@media screen and (max-width: 900px) {
+    body {
+        padding: 16px 8px;
+    }
+    .a4-sheet {
+        transform: scale(0.75);
+        transform-origin: top center;
+        margin-bottom: -25%;
+    }
+    .action-bar {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .a4-sheet {
+        transform: scale(0.55);
+        margin-bottom: -45%;
+    }
+    .action-btn span {
+        display: none;
+    }
+    .action-btn {
+        padding: 10px 14px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .a4-sheet {
+        transform: scale(0.42);
+        margin-bottom: -58%;
+    }
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: #fff;
+        padding: 0;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .a4-sheet {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 10mm 12mm;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        transform: none;
+    }
+
+    .sig-canvas {
+        border: none;
+    }
+
+    .coord-canvas {
+        border: none;
+    }
+
+    .doc-table th {
+        background: var(--brand-deep) !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .doc-table tbody tr:nth-child(even) {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .eval-table .total-row td {
+        background: #e8f1fb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
